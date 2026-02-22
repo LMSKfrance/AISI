@@ -1,0 +1,410 @@
+/**
+ * AISI Design System — Component styles.
+ * All values reference --aisi-* tokens. No hardcoded colors or spacing.
+ */
+
+/* ─── Typography components ─────────────────────────────────────────────── */
+
+.aisi-display-number {
+  font-weight: var(--aisi-weight-normal);
+  font-size: var(--aisi-size-display);
+  letter-spacing: var(--aisi-tracking-tighter);
+  line-height: 1;
+  color: var(--aisi-color-brand-primary);
+}
+
+.aisi-badge-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--aisi-color-neutral-200);
+  background: var(--aisi-color-surface-overlay);
+  border-radius: var(--aisi-radius-full);
+  font-size: var(--aisi-size-mini);
+  font-weight: var(--aisi-weight-semibold);
+  margin-right: var(--aisi-space-sm);
+  color: var(--aisi-color-neutral-300);
+}
+
+.aisi-badge-circle--primary {
+  background: var(--aisi-color-brand-primary);
+  color: var(--aisi-color-on-primary);
+  border: none;
+}
+
+.aisi-badge-circle--accent {
+  background: var(--aisi-color-brand-secondary);
+  color: var(--aisi-color-on-secondary);
+  border: none;
+}
+
+.aisi-label-uppercase {
+  text-transform: uppercase;
+  font-weight: var(--aisi-weight-semibold);
+  letter-spacing: var(--aisi-tracking-extra-wide);
+  font-size: var(--aisi-size-mini);
+  color: var(--aisi-color-neutral-300);
+}
+
+.aisi-heading-section {
+  font-size: var(--aisi-size-small);
+  font-weight: var(--aisi-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--aisi-tracking-wide);
+  display: flex;
+  align-items: center;
+  gap: var(--aisi-space-sm);
+  color: var(--aisi-color-brand-primary);
+}
+
+.aisi-label-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  padding: var(--aisi-space-xl);
+  font-size: var(--aisi-size-micro);
+  font-weight: var(--aisi-weight-semibold);
+  letter-spacing: var(--aisi-tracking-ultra-wide);
+  color: var(--aisi-color-neutral-200);
+  border-top: 1px solid var(--aisi-color-border);
+  margin-top: auto;
+  align-self: flex-start;
+  height: 120px;
+  font-family: var(--aisi-font-sans);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────── */
+
+.aisi-btn {
+  height: 32px;
+  padding: 0 var(--aisi-space-lg);
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--aisi-color-neutral-200);
+  background: transparent;
+  font-size: var(--aisi-size-mini);
+  font-weight: var(--aisi-weight-semibold);
+  cursor: pointer;
+  transition: all var(--aisi-duration-fast);
+  text-transform: uppercase;
+  letter-spacing: var(--aisi-tracking-wide);
+  color: var(--aisi-color-neutral-300);
+  border-radius: var(--aisi-radius-sm);
+  font-family: var(--aisi-font-sans);
+}
+
+.aisi-btn:hover {
+  border-color: var(--aisi-color-brand-primary);
+  color: var(--aisi-color-brand-primary);
+}
+
+.aisi-btn--primary {
+  background: var(--aisi-color-brand-primary);
+  color: var(--aisi-color-on-primary);
+  border-color: var(--aisi-color-brand-primary);
+  opacity: 0.95;
+}
+
+.aisi-btn--primary:hover {
+  opacity: 1;
+  box-shadow: var(--aisi-shadow-button);
+}
+
+.aisi-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.aisi-btn-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: var(--aisi-color-neutral-300);
+  font-family: var(--aisi-font-sans);
+  font-weight: var(--aisi-weight-semibold);
+  background: transparent;
+  transition: all var(--aisi-duration-fast);
+  border-radius: var(--aisi-radius-sm);
+}
+
+.aisi-btn-icon:hover {
+  background: var(--aisi-color-highlight);
+  color: var(--aisi-color-brand-primary);
+}
+
+.aisi-tool-controls {
+  display: flex;
+  gap: var(--aisi-space-md);
+}
+
+/* ─── Navigation ─────────────────────────────────────────────────────────── */
+
+.aisi-nav-item {
+  padding: 10px var(--aisi-space-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--aisi-space-md);
+  cursor: pointer;
+  transition: all var(--aisi-duration-normal) ease;
+  color: var(--aisi-color-neutral-300);
+  text-decoration: none;
+  font-size: var(--aisi-size-base);
+}
+
+.aisi-nav-item:hover {
+  color: var(--aisi-color-brand-primary);
+  background: rgba(31, 86, 115, 0.05);
+}
+
+.aisi-nav-item.active {
+  color: var(--aisi-color-brand-primary);
+  background: var(--aisi-color-highlight);
+  border-right: 3px solid var(--aisi-color-brand-primary);
+  font-weight: var(--aisi-weight-medium);
+}
+
+.aisi-nav-item__number {
+  font-family: var(--aisi-font-mono);
+  font-size: var(--aisi-size-mini);
+  opacity: 0.6;
+  width: 20px;
+}
+
+/* ─── Node card ─────────────────────────────────────────────────────────── */
+
+.aisi-card-node {
+  position: relative;
+  background: var(--aisi-color-surface);
+  border: 1px solid var(--aisi-color-surface-overlay);
+  width: 100%;
+  max-width: 280px;
+  box-shadow: var(--aisi-shadow-md);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--aisi-radius-sm);
+  transition: transform var(--aisi-duration-fast), box-shadow var(--aisi-duration-fast);
+}
+
+.aisi-card-node--selected {
+  border-color: var(--aisi-color-brand-primary);
+  box-shadow: var(--aisi-shadow-lg);
+  background: var(--aisi-color-on-primary);
+  transform: translateY(-2px);
+}
+
+.aisi-card-node__header {
+  padding: var(--aisi-space-md) var(--aisi-space-lg);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--aisi-color-surface-overlay);
+}
+
+.aisi-card-node__title {
+  font-size: var(--aisi-size-mini);
+  font-weight: var(--aisi-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--aisi-tracking-wide);
+  color: var(--aisi-color-brand-primary);
+}
+
+.aisi-badge-type {
+  font-size: var(--aisi-size-micro);
+  padding: 2px 6px;
+  background: var(--aisi-color-surface-overlay);
+  color: var(--aisi-color-neutral-300);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--aisi-radius-pill);
+}
+
+.aisi-card-node--natal .aisi-badge-type {
+  background: var(--aisi-color-highlight);
+  color: var(--aisi-color-brand-primary);
+  border-color: transparent;
+}
+
+.aisi-card-node--dynamic .aisi-badge-type {
+  background: var(--aisi-color-node-accent-bg);
+  color: var(--aisi-color-brand-secondary);
+  border-color: transparent;
+}
+
+.aisi-card-node__content {
+  padding: var(--aisi-space-lg);
+}
+
+.aisi-badge-index {
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  background: var(--aisi-color-brand-primary);
+  font-size: var(--aisi-size-base);
+  font-weight: var(--aisi-weight-semibold);
+  color: var(--aisi-color-on-primary);
+  padding: 2px 6px;
+  line-height: 1.2;
+  border-radius: var(--aisi-radius-sm);
+  box-shadow: var(--aisi-shadow-sm);
+}
+
+.aisi-badge-index--accent {
+  background: var(--aisi-color-brand-secondary);
+}
+
+.aisi-badge-index--neutral {
+  background: var(--aisi-color-neutral-300);
+}
+
+/* ─── Data display ─────────────────────────────────────────────────────── */
+
+.aisi-data-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--aisi-size-base);
+  margin-bottom: var(--aisi-space-sm);
+  color: var(--aisi-color-neutral-300);
+  align-items: center;
+}
+
+.aisi-data-value {
+  color: var(--aisi-color-fg);
+  font-weight: var(--aisi-weight-medium);
+  font-family: var(--aisi-font-mono);
+  font-size: var(--aisi-size-small);
+}
+
+.aisi-data-value--primary {
+  color: var(--aisi-color-brand-primary);
+}
+
+.aisi-data-value--accent {
+  color: var(--aisi-color-brand-secondary);
+}
+
+.aisi-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--aisi-color-neutral-100);
+  font-size: var(--aisi-size-base);
+  color: var(--aisi-color-neutral-300);
+}
+
+.aisi-list-item:last-child {
+  border-bottom: none;
+}
+
+.aisi-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--aisi-space-lg);
+  margin-bottom: var(--aisi-space-lg);
+}
+
+.aisi-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aisi-stat-label {
+  font-size: var(--aisi-size-micro);
+  color: var(--aisi-color-neutral-300);
+  text-transform: uppercase;
+  letter-spacing: var(--aisi-tracking-relaxed);
+}
+
+.aisi-stat-value {
+  font-size: var(--aisi-size-stat);
+  font-weight: var(--aisi-weight-normal);
+  font-family: var(--aisi-font-mono);
+  letter-spacing: var(--aisi-tracking-tight);
+  color: var(--aisi-color-fg);
+}
+
+.aisi-stat-value--primary {
+  color: var(--aisi-color-brand-primary);
+}
+
+.aisi-progress {
+  height: 3px;
+  background: var(--aisi-color-neutral-100);
+  margin-top: 6px;
+  position: relative;
+  border-radius: var(--aisi-radius-sm);
+  overflow: hidden;
+}
+
+.aisi-progress__fill {
+  height: 100%;
+  background: var(--aisi-color-brand-primary);
+  opacity: 0.8;
+  transition: width var(--aisi-duration-normal) ease;
+}
+
+.aisi-progress__fill--neutral {
+  background: var(--aisi-color-neutral-200);
+}
+
+/* ─── Panel ─────────────────────────────────────────────────────────────── */
+
+.aisi-panel-section {
+  padding: var(--aisi-space-xl);
+  border-bottom: 1px solid var(--aisi-color-neutral-100);
+  background: var(--aisi-color-on-primary);
+  border: 1px solid var(--aisi-color-border);
+  border-radius: var(--aisi-radius-md);
+}
+
+.aisi-panel-section--highlight {
+  background: linear-gradient(135deg, var(--aisi-color-highlight) 0%, #f0f4f5 100%);
+  border-bottom: 1px solid var(--aisi-color-on-primary);
+}
+
+.aisi-panel-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--aisi-space-lg);
+}
+
+/* ─── Utilities (semantic color helpers) ─────────────────────────────────── */
+
+.aisi-text-primary {
+  color: var(--aisi-color-brand-primary);
+}
+
+.aisi-text-accent {
+  color: var(--aisi-color-brand-secondary);
+}
+
+.aisi-bg-primary {
+  background: var(--aisi-color-brand-primary);
+}
+
+.aisi-bg-accent {
+  background: var(--aisi-color-brand-secondary);
+}
+
+.aisi-bg-fg {
+  background: var(--aisi-color-fg);
+}
+
+.aisi-bg-neutral-100 {
+  background: var(--aisi-color-neutral-100);
+}
+
+.aisi-bg-neutral-200 {
+  background: var(--aisi-color-neutral-200);
+}
+
+.aisi-bg-neutral-300 {
+  background: var(--aisi-color-neutral-300);
+}

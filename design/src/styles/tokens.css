@@ -1,0 +1,110 @@
+/**
+ * AISI Design System — Single source of truth for design tokens.
+ * Use --aisi-* only in components. Map these to Figma variables for sync.
+ *
+ * Token naming: --aisi-{category}-{name}
+ * Categories: color, font, size, weight, letter-spacing, space, radius, shadow, duration
+ */
+
+:root {
+  /* ─── Color ───────────────────────────────────────────────────────────── */
+  /* Semantic */
+  --aisi-color-bg: #FDFCF9;
+  --aisi-color-fg: #2A363B;
+  --aisi-color-border: #DEDBD0;
+  --aisi-color-active: #F4F7F8;
+
+  /* Brand */
+  --aisi-color-brand-primary: #1F5673;
+  --aisi-color-brand-secondary: #D98E73;
+
+  /* Neutral (zinc scale) */
+  --aisi-color-neutral-100: #F3F1EA;
+  --aisi-color-neutral-200: #BCCACD;
+  --aisi-color-neutral-300: #6B7C85;
+
+  /* Functional */
+  --aisi-color-highlight: #EEF4F4;
+  --aisi-color-surface: #F2F6F7;
+  --aisi-color-surface-overlay: rgba(255, 255, 255, 0.4);
+  --aisi-color-node-accent-bg: #fde8e4;
+
+  /* On-brand (text on primary/secondary) */
+  --aisi-color-on-primary: #ffffff;
+  --aisi-color-on-secondary: #ffffff;
+
+  /* Legacy aliases (use for gradual migration; prefer --aisi-* in new code) */
+  --c-bg: var(--aisi-color-bg);
+  --c-fg: var(--aisi-color-fg);
+  --c-cobalt: var(--aisi-color-brand-primary);
+  --c-blush: var(--aisi-color-brand-secondary);
+  --c-zinc-light: var(--aisi-color-neutral-100);
+  --c-zinc-medium: var(--aisi-color-neutral-200);
+  --c-zinc-dark: var(--aisi-color-neutral-300);
+  --c-blush-dim: var(--aisi-color-highlight);
+  --c-border: var(--aisi-color-border);
+  --c-active: var(--aisi-color-active);
+  --c-node-bg: var(--aisi-color-surface);
+
+  /* ─── Typography ─────────────────────────────────────────────────────── */
+  --aisi-font-sans: "Gill Sans", "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --aisi-font-mono: "Courier New", Courier, monospace;
+
+  --aisi-size-micro: 9px;
+  --aisi-size-mini: 10px;
+  --aisi-size-small: 11px;
+  --aisi-size-base: 12px;
+  --aisi-size-body: 13px;
+  --aisi-size-stat: 22px;
+  --aisi-size-display: 24px;
+
+  --aisi-weight-normal: 400;
+  --aisi-weight-medium: 500;
+  --aisi-weight-semibold: 600;
+  --aisi-weight-bold: 700;
+
+  --aisi-tracking-tight: -0.02em;
+  --aisi-tracking-tighter: -0.01em;
+  --aisi-tracking-normal: 0.04em;
+  --aisi-tracking-relaxed: 0.05em;
+  --aisi-tracking-wide: 0.1em;
+  --aisi-tracking-extra-wide: 0.12em;
+  --aisi-tracking-ultra-wide: 0.15em;
+
+  /* Legacy */
+  --f-sans: var(--aisi-font-sans);
+  --f-mono: var(--aisi-font-mono);
+
+  /* ─── Spacing ─────────────────────────────────────────────────────────── */
+  --aisi-space-xs: 4px;
+  --aisi-space-sm: 8px;
+  --aisi-space-md: 12px;
+  --aisi-space-lg: 16px;
+  --aisi-space-xl: 24px;
+  --aisi-space-2xl: 32px;
+
+  /* Legacy */
+  --space-xs: var(--aisi-space-xs);
+  --space-sm: var(--aisi-space-sm);
+  --space-md: var(--aisi-space-md);
+  --space-lg: var(--aisi-space-lg);
+  --space-xl: var(--aisi-space-xl);
+  --space-2xl: var(--aisi-space-2xl);
+
+  /* ─── Radius ──────────────────────────────────────────────────────────── */
+  --aisi-radius-sm: 2px;
+  --aisi-radius-md: 4px;
+  --aisi-radius-pill: 10px;
+  --aisi-radius-full: 50%;
+
+  /* ─── Shadow ──────────────────────────────────────────────────────────── */
+  --aisi-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --aisi-shadow-md: 0 4px 20px rgba(31, 86, 115, 0.08);
+  --aisi-shadow-lg: 0 8px 24px rgba(31, 86, 115, 0.15);
+  --aisi-shadow-button: 0 2px 8px rgba(31, 86, 115, 0.2);
+  --aisi-shadow-canvas: 0 2px 10px rgba(0, 0, 0, 0.03);
+
+  /* ─── Motion ──────────────────────────────────────────────────────────── */
+  --aisi-duration-fast: 0.2s;
+  --aisi-duration-normal: 0.3s;
+}
