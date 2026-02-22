@@ -1,0 +1,38 @@
+:root {
+  --c-bg: #FDFCF9;
+  --c-fg: #2A363B;
+  --c-zinc-light: #F3F1EA;
+  --c-zinc-medium: #BCCACD;
+  --c-zinc-dark: #6B7C85;
+  --c-cobalt: #1F5673;
+  --c-blush: #D98E73;
+  --c-blush-dim: #EEF4F4;
+  --c-border: #DEDBD0;
+  --c-active: #F4F7F8;
+  --c-node-bg: #F2F6F7;
+  --f-sans: "Gill Sans", "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --f-mono: "Courier New", Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+  font-family: var(--f-sans);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,97 @@
+.sidebar {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  border-right: 1px solid var(--c-border);
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg);
+  z-index: 10;
+}
+
+.brand {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.brandLogo {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-fg);
+}
+
+.dnaCircleTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--c-zinc-medium);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 600;
+  margin-right: 8px;
+  color: var(--c-zinc-dark);
+}
+
+.navList {
+  padding: 24px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--c-zinc-dark);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.navItem:hover {
+  color: var(--c-cobalt);
+  background: rgba(31, 86, 115, 0.05);
+}
+
+.navItem.active {
+  color: var(--c-cobalt);
+  background: var(--c-blush-dim);
+  border-right: 3px solid var(--c-cobalt);
+  font-weight: 500;
+}
+
+.navNumber {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  opacity: 0.6;
+  width: 16px;
+}
+
+.verticalProjectLabel {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  padding: 24px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--c-zinc-medium);
+  border-top: 1px solid var(--c-border);
+  margin-top: auto;
+  align-self: flex-start;
+  height: 120px;
+  font-family: var(--f-sans);
+}

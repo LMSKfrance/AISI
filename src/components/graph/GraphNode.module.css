@@ -1,0 +1,89 @@
+.node {
+  position: relative;
+  background: var(--c-node-bg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  min-width: 180px;
+  max-width: 240px;
+  box-shadow: 0 4px 20px rgba(31, 86, 115, 0.08);
+  border-radius: 2px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.node.selected {
+  border-color: var(--c-cobalt);
+  box-shadow: 0 8px 24px rgba(31, 86, 115, 0.15);
+  background: #fff;
+}
+
+.header {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-cobalt);
+}
+
+.badge {
+  font-size: 9px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--c-zinc-dark);
+  border-radius: 10px;
+}
+
+.node.natal .badge {
+  background: var(--c-blush-dim);
+  color: var(--c-cobalt);
+}
+
+.node.dynamic .badge {
+  background: #FDE8E4;
+  color: var(--c-blush);
+}
+
+.node.outcome .badge {
+  background: var(--c-zinc-light);
+  color: var(--c-zinc-dark);
+}
+
+.content {
+  padding: 12px;
+}
+
+.dataRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-bottom: 6px;
+  color: var(--c-zinc-dark);
+}
+
+.dataRow:last-child {
+  margin-bottom: 0;
+}
+
+.dataValue {
+  color: var(--c-fg);
+  font-family: var(--f-mono);
+  font-size: 10px;
+}
+
+.handle {
+  width: 8px;
+  height: 8px;
+  background: var(--c-zinc-medium);
+  border: 1px solid var(--c-border);
+}
+
+.handle:hover {
+  background: var(--c-cobalt);
+}

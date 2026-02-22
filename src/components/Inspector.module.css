@@ -1,0 +1,156 @@
+.inspector {
+  grid-column: 3;
+  grid-row: 2;
+  border-left: 1px solid var(--c-border);
+  background: var(--c-bg);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.panelSection {
+  padding: 24px;
+  border-bottom: 1px solid var(--c-zinc-light);
+}
+
+.panelSection.highlight {
+  background: linear-gradient(135deg, var(--c-blush-dim) 0%, #F0F4F5 100%);
+  border-bottom: 1px solid #fff;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-cobalt);
+}
+
+.dnaCircleTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--c-zinc-medium);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 600;
+  margin-right: 8px;
+  color: var(--c-zinc-dark);
+}
+
+.sortLabel {
+  font-size: 9px;
+  color: var(--c-zinc-dark);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statLabel {
+  font-size: 9px;
+  color: var(--c-zinc-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 400;
+  font-family: var(--f-mono);
+  letter-spacing: -0.02em;
+  color: var(--c-fg);
+}
+
+.analysisText {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--c-zinc-dark);
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--c-zinc-light);
+  font-size: 12px;
+  color: var(--c-zinc-dark);
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.listItemBold {
+  font-weight: 500;
+}
+
+.listItemMono {
+  font-family: var(--f-mono);
+  color: var(--c-zinc-dark);
+}
+
+.listItemMonoCobalt {
+  font-family: var(--f-mono);
+  color: var(--c-cobalt);
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progressBar {
+  height: 3px;
+  background: var(--c-zinc-light);
+  margin-top: 6px;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--c-cobalt);
+  opacity: 0.8;
+}
+
+.verticalLabel {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  padding: 24px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--c-zinc-medium);
+  margin-top: auto;
+  align-self: flex-start;
+  height: auto;
+  font-family: var(--f-sans);
+}

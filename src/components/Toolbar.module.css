@@ -1,0 +1,71 @@
+.toolbar {
+  grid-column: 2 / -1;
+  grid-row: 1;
+  border-bottom: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: var(--c-bg);
+}
+
+.workspaceTitle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dnaNumber {
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--c-cobalt);
+}
+
+.dnaUppercase {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  color: var(--c-zinc-dark);
+}
+
+.toolControls {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  height: 32px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--c-zinc-medium);
+  background: transparent;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-zinc-dark);
+  border-radius: 2px;
+}
+
+.btn:hover {
+  border-color: var(--c-cobalt);
+  color: var(--c-cobalt);
+}
+
+.btn.primary {
+  background: var(--c-cobalt);
+  color: #fff;
+  border-color: var(--c-cobalt);
+  opacity: 0.95;
+}
+
+.btn.primary:hover {
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(31, 86, 115, 0.2);
+}

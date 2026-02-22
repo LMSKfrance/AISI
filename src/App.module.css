@@ -1,0 +1,32 @@
+.appLayout {
+  display: grid;
+  grid-template-columns: 240px 1fr 320px;
+  grid-template-rows: 60px 1fr 40px;
+  height: 100%;
+  width: 100%;
+}
+
+.placeholder {
+  grid-column: 2 / -1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--c-bg);
+  color: var(--c-zinc-dark);
+}
+
+.dnaNumber {
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  color: var(--c-cobalt);
+}
+
+.dnaUppercase {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+}

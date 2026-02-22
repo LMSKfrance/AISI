@@ -1,0 +1,124 @@
+.node {
+  position: absolute;
+  background: var(--c-node-bg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 240px;
+  box-shadow: 0 4px 20px rgba(31, 86, 115, 0.08);
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.node.selected {
+  border-color: var(--c-cobalt);
+  box-shadow: 0 8px 24px rgba(31, 86, 115, 0.15);
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.nodeHeader {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.nodeTitle {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--c-cobalt);
+}
+
+.nodeTypeBadge {
+  font-size: 9px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--c-zinc-dark);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.node.natal .nodeTypeBadge {
+  background: var(--c-blush-dim);
+  color: var(--c-cobalt);
+  border-color: transparent;
+}
+
+.node.dynamic .nodeTypeBadge {
+  background: #FDE8E4;
+  color: var(--c-blush);
+  border-color: transparent;
+}
+
+.nodeContent {
+  padding: 16px;
+}
+
+.dataSectionWithStat {
+  margin-bottom: 0;
+  border-top: 1px solid var(--c-zinc-light);
+  padding-top: 8px;
+}
+
+.dataRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: var(--c-zinc-dark);
+  align-items: center;
+}
+
+.dataValue {
+  color: var(--c-fg);
+  font-weight: 500;
+  font-family: var(--f-mono);
+  font-size: 11px;
+}
+
+.nodeIndex {
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  background: var(--c-cobalt);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  padding: 2px 6px;
+  line-height: 1.2;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statLabel {
+  font-size: 9px;
+  color: var(--c-zinc-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 400;
+  font-family: var(--f-mono);
+  letter-spacing: -0.02em;
+  color: var(--c-fg);
+}
