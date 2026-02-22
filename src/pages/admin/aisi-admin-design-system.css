@@ -1,0 +1,16 @@
+/**
+ * AISI Admin Design System page — uses only --aisi-* and .aisi-* (design folder).
+ * Do not use legacy dna-* classes or --c-* / --f-* / --space-* tokens in this file.
+ */
+@import '../../../design/src/app/design-system.css';
+
+/* Editorial: no shadows on this page, hairline borders only */
+.aisi-admin-ds .aisi-showcase-color-swatch,
+.aisi-admin-ds .aisi-card-node,
+.aisi-admin-ds .aisi-panel-section {
+  box-shadow: none;
+}
+
+.aisi-admin-ds .aisi-layout-header {
+  background: var(--aisi-color-highlight);
+}

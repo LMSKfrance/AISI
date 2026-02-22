@@ -1,0 +1,56 @@
+/* Admin uses the design folder (Figma) design system */
+@import '../../design/src/app/design-system.css';
+
+/* Admin-only: login screen centering */
+.aisi-admin-login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--aisi-space-xl);
+}
+
+.aisi-admin-login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: var(--aisi-space-2xl);
+  background: var(--aisi-color-surface);
+  border: 1px solid var(--aisi-color-border);
+  border-radius: var(--aisi-radius-md);
+  box-shadow: var(--aisi-shadow-md);
+}
+
+.aisi-admin-login-card .aisi-admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--aisi-space-lg);
+}
+
+.aisi-admin-login-card .aisi-admin-label {
+  font-size: var(--aisi-size-mini);
+  font-weight: var(--aisi-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--aisi-tracking-wide);
+  color: var(--aisi-color-neutral-300);
+}
+
+.aisi-admin-login-card .aisi-admin-input {
+  height: 40px;
+  padding: 0 var(--aisi-space-md);
+  border: 1px solid var(--aisi-color-border);
+  border-radius: var(--aisi-radius-sm);
+  background: var(--aisi-color-bg);
+  color: var(--aisi-color-fg);
+  font-size: var(--aisi-size-body);
+  font-family: var(--aisi-font-sans);
+}
+
+.aisi-admin-login-card .aisi-admin-input:focus {
+  outline: none;
+  border-color: var(--aisi-color-brand-primary);
+}
+
+.aisi-admin-login-card .aisi-admin-error {
+  font-size: var(--aisi-size-base);
+  color: var(--aisi-color-brand-secondary);
+}
