@@ -1,5 +1,6 @@
 .node {
   position: relative;
+  overflow: visible;
   background: var(--c-node-bg);
   border: 1px solid rgba(255, 255, 255, 0.5);
   min-width: 180px;
@@ -77,13 +78,138 @@
   font-size: 10px;
 }
 
+.dataInput {
+  width: 100%;
+  max-width: 120px;
+  font-size: 10px;
+  font-family: var(--f-mono);
+  color: var(--c-fg);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--c-zinc-light);
+  border-radius: 2px;
+  padding: 4px 6px;
+}
+
+.dataInput:focus {
+  outline: none;
+  border-color: var(--c-cobalt);
+}
+
+.portsColumn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 2px;
+  pointer-events: none;
+}
+.portsColumn[data-side="right"] {
+  right: 0;
+  transform: translateX(50%);
+  align-items: flex-end;
+}
+.portsColumn[data-side="left"] {
+  left: 0;
+  /* Keep inside node bounds so parent overflow doesn't hide inputs */
+  padding-left: 0;
+  align-items: flex-start;
+}
+.portWrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  color: var(--c-zinc-dark);
+  letter-spacing: 0.02em;
+  pointer-events: auto;
+}
+.portsColumn[data-side="right"] .portWrap { flex-direction: row; }
+.portsColumn[data-side="left"] .portWrap { flex-direction: row-reverse; }
+
+/* Single port (PersonNode, FinalResultsNode) */
+.portWrapSingle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.portWrapSingleRight {
+  right: -2px;
+}
+.portWrapSingleLeft {
+  left: -2px;
+  flex-direction: row-reverse;
+}
+
+.portLabel {
+  white-space: nowrap;
+  opacity: 0.85;
+}
+.portWrap:hover .portLabel {
+  color: var(--c-cobalt);
+}
+
 .handle {
   width: 8px;
   height: 8px;
   background: var(--c-zinc-medium);
   border: 1px solid var(--c-border);
+  flex-shrink: 0;
+  pointer-events: auto;
 }
 
 .handle:hover {
   background: var(--c-cobalt);
+}
+
+/* Final Results node: tabs and metrics */
+.tabRow {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tabBtn {
+  border: 1px solid var(--c-border);
+  background: transparent;
+  color: var(--c-zinc-dark);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.tabBtnActive {
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--c-fg);
+}
+
+.metricBig {
+  margin-bottom: 8px;
+}
+
+.metricBigLabel {
+  font-size: 9px;
+  color: var(--c-zinc-dark);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metricBigValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-fg);
+}
+
+.supportFriction {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 8px;
+  color: var(--c-zinc-dark);
+  font-size: 11px;
 }

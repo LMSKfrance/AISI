@@ -29,17 +29,18 @@ interface AppState {
   natalChartComputed: boolean;
   nodes: NodeInstance[];
   edges: EdgeInstance[];
-  selectedNodeId: string | null;
+  selectedNodeIds: string[];
   connectionTooltip: ConnectionTooltip | null;
   analysis: GraphAnalysis | null;
   finalResultsView: 'full' | 'optionA' | 'optionB';
 
   setProfile: (p: UserProfile | null) => void;
   calculateNatalChart: () => void;
-  setSelectedNodeId: (id: string | null) => void;
+  setSelectedNodeIds: (ids: string[]) => void;
   addNode: (type: NodeTypeId, position: { x: number; y: number }, config?: Record<string, unknown>) => string;
   updateNodeConfig: (nodeId: string, configPatch: Record<string, unknown>) => void;
   removeNode: (id: string) => void;
+  removeNodes: (ids: string[]) => void;
   setNodes: (nodes: NodeInstance[] | ((prev: NodeInstance[]) => NodeInstance[])) => void;
   addEdge: (source: string, sourcePort: string, target: string, targetPort: string) => { ok: boolean; message?: string };
   setEdges: (edges: EdgeInstance[]) => void;
@@ -57,7 +58,7 @@ export const useStore = create<AppState>((set, get) => ({
   natalChartComputed: false,
   nodes: [],
   edges: [],
-  selectedNodeId: null,
+  selectedNodeIds: [],
   connectionTooltip: null,
   analysis: null,
   finalResultsView: 'full',
@@ -74,7 +75,7 @@ export const useStore = create<AppState>((set, get) => ({
     });
   },
 
-  setSelectedNodeId: (id) => set({ selectedNodeId: id }),
+  setSelectedNodeIds: (ids) => set({ selectedNodeIds: ids }),
 
   addNode: (type, position, config = {}) => {
     const def = getNodeType(type);
@@ -106,7 +107,17 @@ export const useStore = create<AppState>((set, get) => ({
     set((s) => ({
       nodes: s.nodes.filter((n) => n.id !== id),
       edges: s.edges.filter((e) => e.sourceNodeId !== id && e.targetNodeId !== id),
-      selectedNodeId: s.selectedNodeId === id ? null : s.selectedNodeId,
+      selectedNodeIds: s.selectedNodeIds.filter((x) => x !== id),
+    }));
+    get().runCalculation();
+  },
+
+  removeNodes: (ids) => {
+    const idSet = new Set(ids);
+    set((s) => ({
+      nodes: s.nodes.filter((n) => !idSet.has(n.id)),
+      edges: s.edges.filter((e) => !idSet.has(e.sourceNodeId) && !idSet.has(e.targetNodeId)),
+      selectedNodeIds: s.selectedNodeIds.filter((x) => !idSet.has(x)),
     }));
     get().runCalculation();
   },
@@ -124,7 +135,8 @@ export const useStore = create<AppState>((set, get) => ({
     const sourceDef = getNodeType(sourceNode.type);
     const targetDef = getNodeType(targetNode.type);
     const outPort = sourceDef?.outputs.find((p) => p.id === sourcePort);
-    const inPort = targetDef?.inputs.find((p) => p.id === targetPort);
+    const logicalTargetPort = targetPort.replace(/-right$/, '');
+    const inPort = targetDef?.inputs.find((p) => p.id === logicalTargetPort);
     if (!outPort || !inPort) return { ok: false, message: 'Invalid port' };
     const sourceType = outPort.type;
     const targetType = inPort.type;

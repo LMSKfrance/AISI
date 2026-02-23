@@ -76,12 +76,15 @@ export const PersonNode = memo(function PersonNode({ data, selected }: NodeProps
       className={`${styles.node} ${styles.natal} ${selected ? styles.selected : ''}`}
       style={{ minWidth: 200 }}
     >
-      <Handle
-        type="source"
-        position={Position.Right}
-        id="personProfile"
-        className={styles.handle}
-      />
+      <div className={`${styles.portWrapSingle} ${styles.portWrapSingleRight}`}>
+        <Handle
+          type="source"
+          position={Position.Right}
+          id="personProfile"
+          className={styles.handle}
+        />
+        <span className={styles.portLabel}>Profile</span>
+      </div>
       <div className={styles.header}>
         <span className={styles.title}>PERSON</span>
         <span className={styles.badge}>PROFILE</span>

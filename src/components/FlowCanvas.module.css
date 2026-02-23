@@ -13,12 +13,52 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 1px solid var(--c-zinc-medium);
-  opacity: 0.2;
+  opacity: 0.32;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.wheel::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  border: 1px solid var(--c-zinc-medium);
+  opacity: 0.5;
+}
+
+.wheelSpoke {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 400px;
+  background: linear-gradient(to bottom, transparent, var(--c-zinc-medium), transparent);
+  opacity: 0.12;
+  transform-origin: 50% 0;
   pointer-events: none;
 }
 
+.wheelSpoke:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); }
+.wheelSpoke:nth-child(2) { transform: translate(-50%, -50%) rotate(30deg); }
+.wheelSpoke:nth-child(3) { transform: translate(-50%, -50%) rotate(60deg); }
+.wheelSpoke:nth-child(4) { transform: translate(-50%, -50%) rotate(90deg); }
+.wheelSpoke:nth-child(5) { transform: translate(-50%, -50%) rotate(120deg); }
+.wheelSpoke:nth-child(6) { transform: translate(-50%, -50%) rotate(150deg); }
+.wheelSpoke:nth-child(7) { transform: translate(-50%, -50%) rotate(180deg); }
+.wheelSpoke:nth-child(8) { transform: translate(-50%, -50%) rotate(210deg); }
+.wheelSpoke:nth-child(9) { transform: translate(-50%, -50%) rotate(240deg); }
+.wheelSpoke:nth-child(10) { transform: translate(-50%, -50%) rotate(270deg); }
+.wheelSpoke:nth-child(11) { transform: translate(-50%, -50%) rotate(300deg); }
+.wheelSpoke:nth-child(12) { transform: translate(-50%, -50%) rotate(330deg); }
+
 .flow {
   --xy-flow-background: transparent;
+}
+
+/* Ensure node input/output handles are not clipped */
+.flow :global([class*="react-flow__node"]) {
+  overflow: visible !important;
 }
 
 .controls {

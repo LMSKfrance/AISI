@@ -87,12 +87,24 @@ export const FinalResultsNode = memo(function FinalResultsNode({ data, selected 
       className={`${styles.node} ${styles.outcome} ${selected ? styles.selected : ''}`}
       style={{ minWidth: 260, maxWidth: 300 }}
     >
-      <Handle
-        type="target"
-        position={Position.Left}
-        id="finalInput"
-        className={styles.handle}
-      />
+      <div className={`${styles.portWrapSingle} ${styles.portWrapSingleLeft}`}>
+        <span className={styles.portLabel}>Input</span>
+        <Handle
+          type="target"
+          position={Position.Left}
+          id="finalInput"
+          className={styles.handle}
+        />
+      </div>
+      <div className={`${styles.portWrapSingle} ${styles.portWrapSingleRight}`}>
+        <Handle
+          type="target"
+          position={Position.Right}
+          id="finalInput-right"
+          className={styles.handle}
+        />
+        <span className={styles.portLabel}>Input</span>
+      </div>
       <div className={styles.header}>
         <span className={styles.title}>FINAL RESULTS</span>
         <span className={styles.badge}>RESULT</span>

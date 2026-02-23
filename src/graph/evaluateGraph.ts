@@ -42,6 +42,10 @@ export interface GraphAnalysis {
 
 type IncomingEntry = { nodeId: string; port: string; value: unknown };
 
+function logicalTargetPort(port: string): string {
+  return port.replace(/-right$/, '');
+}
+
 function buildIncomingForNode(
   nodeId: string,
   edges: EdgeInstance[],
@@ -53,12 +57,13 @@ function buildIncomingForNode(
     const source = nodeMap.get(e.sourceNodeId);
     if (!source?.computedOutput) continue;
     const entry: IncomingEntry = { nodeId: e.sourceNodeId, port: e.sourcePort, value: source.computedOutput };
-    if (e.targetPort === 'finalInput') {
-      const existing = result[e.targetPort];
+    const port = logicalTargetPort(e.targetPort);
+    if (port === 'finalInput') {
+      const existing = result[port];
       if (Array.isArray(existing)) existing.push(entry);
-      else result[e.targetPort] = [entry];
+      else result[port] = [entry];
     } else {
-      result[e.targetPort] = entry;
+      result[port] = entry;
     }
   }
   return result;

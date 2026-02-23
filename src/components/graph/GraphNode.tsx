@@ -29,6 +29,7 @@ function nodeBadge(typeId: string): string {
     houseActivation: 'DOMAIN',
     decisionScore: 'DECISION',
     finalResults: 'RESULT',
+    person: 'PROFILE',
   };
   return map[typeId] ?? 'NODE';
 }
@@ -44,15 +45,32 @@ export const GraphNode = memo(function GraphNode({ data, selected }: NodeProps) 
     <div
       className={`${styles.node} ${CATEGORY_STYLE[category] ?? styles.default} ${selected ? styles.selected : ''}`}
     >
-      {def?.outputs.map((p) => (
-        <Handle
-          key={p.id}
-          type="source"
-          position={Position.Right}
-          id={p.id}
-          className={styles.handle}
-        />
-      ))}
+      {(def?.outputs.length || def?.inputs.length) ? (
+        <div className={styles.portsColumn} data-side="right">
+          {def?.outputs.map((p) => (
+            <div key={`out-${p.id}`} className={styles.portWrap}>
+              <Handle
+                type="source"
+                position={Position.Right}
+                id={p.id}
+                className={styles.handle}
+              />
+              <span className={styles.portLabel}>{p.label}</span>
+            </div>
+          ))}
+          {def?.inputs.map((p) => (
+            <div key={`right-${p.id}`} className={styles.portWrap}>
+              <Handle
+                type="target"
+                position={Position.Right}
+                id={`${p.id}-right`}
+                className={styles.handle}
+              />
+              <span className={styles.portLabel}>{p.label}</span>
+            </div>
+          ))}
+        </div>
+      ) : null}
       <div className={styles.header}>
         <span className={styles.title}>{nodeLabel(node.type)}</span>
         <span className={styles.badge}>{nodeBadge(node.type)}</span>
@@ -65,15 +83,21 @@ export const GraphNode = memo(function GraphNode({ data, selected }: NodeProps) 
           </div>
         ))}
       </div>
-      {def?.inputs.map((p) => (
-        <Handle
-          key={p.id}
-          type="target"
-          position={Position.Left}
-          id={p.id}
-          className={styles.handle}
-        />
-      ))}
+      {def?.inputs.length ? (
+        <div className={styles.portsColumn} data-side="left">
+          {def.inputs.map((p) => (
+            <div key={`left-${p.id}`} className={styles.portWrap}>
+              <span className={styles.portLabel}>{p.label}</span>
+              <Handle
+                type="target"
+                position={Position.Left}
+                id={p.id}
+                className={styles.handle}
+              />
+            </div>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 });
@@ -95,10 +119,17 @@ function dataRowsFromNode(node: NodeInstance): { label: string; value: string }[
     rows.push({ label: 'Start', value: (node.config.startDate as string) || '—' });
     if (node.config.endDate) rows.push({ label: 'End', value: String(node.config.endDate) });
   }
+  if (node.type === 'person') {
+    rows.push({ label: 'Name', value: (node.config.name as string) || '—' });
+    rows.push({ label: 'Date', value: (node.config.birthDate as string) || '—' });
+    rows.push({ label: 'Time', value: (node.config.birthTime as string) || '—' });
+    rows.push({ label: 'Place', value: (node.config.birthPlace as string) || '—' });
+  }
   if (node.type === 'finalResults' && node.computedOutput) {
-    const o = node.computedOutput as { alignmentScore?: number; volatility?: string };
-    rows.push({ label: 'Align', value: `${o.alignmentScore ?? 84}%` });
-    rows.push({ label: 'Volatility', value: o.volatility ?? 'Low' });
+    const o = node.computedOutput as { summary?: { alignmentScore?: number; volatility?: string } };
+    const s = o.summary ?? {};
+    rows.push({ label: 'Align', value: `${s.alignmentScore ?? '—'}/100` });
+    rows.push({ label: 'Volatility', value: s.volatility ?? '—' });
   }
   if (rows.length === 0) rows.push({ label: 'Type', value: node.type });
   return rows;

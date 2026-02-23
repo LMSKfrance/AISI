@@ -48,6 +48,74 @@
   color: var(--c-cobalt);
 }
 
+.templateIntro {
+  font-size: 10px;
+  color: var(--c-zinc-dark);
+  margin: 0 24px 12px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.templateGroup {
+  margin-bottom: 16px;
+}
+
+.templateGroup:last-child {
+  margin-bottom: 0;
+}
+
+.templateGroupTitle {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c-cobalt);
+  margin: 0 24px 4px;
+}
+
+.templateGroupDesc {
+  font-size: 10px;
+  color: var(--c-zinc-dark);
+  margin: 0 24px 8px;
+  line-height: 1.35;
+  opacity: 0.85;
+}
+
 .templateBtn {
   font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.templateLabel {
+  font-weight: 600;
+  color: var(--c-fg);
+}
+
+.templateDesc {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--c-zinc-dark);
+  opacity: 0.9;
+  line-height: 1.3;
+}
+
+.addPersonBtn {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--c-cobalt);
+  background: rgba(31, 86, 115, 0.08);
+  border: 1px solid rgba(31, 86, 115, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addPersonBtn:hover {
+  background: rgba(31, 86, 115, 0.14);
+  border-color: var(--c-cobalt);
 }

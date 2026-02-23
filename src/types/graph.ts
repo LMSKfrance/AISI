@@ -9,7 +9,9 @@ export type PortType =
   | 'house'
   | 'aspectResult'
   | 'domainImpact'
-  | 'decisionAnalysis';
+  | 'decisionAnalysis'
+  | 'personProfile'
+  | 'finalInput';
 
 /**
  * Node type identifiers.
@@ -22,7 +24,8 @@ export type NodeTypeId =
   | 'aspect'
   | 'houseActivation'
   | 'decisionScore'
-  | 'finalResults';
+  | 'finalResults'
+  | 'person';
 
 export interface PortDef {
   id: string;
